@@ -83,9 +83,7 @@ Partial credit keeps you alive; it never makes you great.
 Verify the shipped code reproduces all of the above:
 
 ```bash
-npx tsc src/lib/momentum.ts --outDir build-check --rootDir src/lib \
-  --module es2020 --target es2020 --moduleResolution bundler
-node scripts/verify-engine.mjs
+npm run verify
 ```
 
 ---

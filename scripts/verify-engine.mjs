@@ -5,7 +5,17 @@
  *   node scripts/verify-engine.mjs
  */
 
-import { resolveDay, protection, angularVelocity } from '../build-check/momentum.js';
+let engine;
+try {
+  engine = await import('../build-check/momentum.js');
+} catch {
+  console.error(
+    '\nCompiled engine not found at build-check/momentum.js.\n' +
+      'Run `npm run verify` instead — it compiles the TypeScript first.\n',
+  );
+  process.exit(1);
+}
+const { resolveDay, protection, angularVelocity } = engine;
 
 let failures = 0;
 const near = (a, b, tol = 0.05) => Math.abs(a - b) <= tol;

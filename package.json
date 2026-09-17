@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc --noEmit",
+    "verify": "tsc src/lib/momentum.ts --outDir build-check --rootDir src/lib --module es2020 --target es2020 --moduleResolution bundler --skipLibCheck && node scripts/verify-engine.mjs",
     "build": "vite build",
     "preview": "vite preview"
   },
